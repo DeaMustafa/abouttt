@@ -1,0 +1,678 @@
+/* General Style Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px; /* Base font size */
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--body-bg); /* Dark background for the entire page */
+    color: var(--text-color); /* White text color by default */
+    padding-top: var(--nav-height); /* Space for fixed navbar */
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* Inherits color from parent element */
+}
+
+/* Root Variables */
+:root {
+    --main-color: #c0392b; /* Accent color */
+    --body-bg: #181616; /* Background color */
+    --box-bg: #221f1f; /* Secondary background color for elements */
+    --text-color: #ffffff; /* White text color */
+    --nav-height: 60px; /* Height of the navbar */
+    --space-top: 30px; /* Spacing for margin and padding */
+}
+
+/* Container setup */
+.container {
+    max-width: 1920px;
+    margin: auto;
+    padding: 0 40px;
+}
+
+/* Navigation Styles */
+.nav-wrapper {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000; /* Dark background for navbar */
+    z-index: 99;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--nav-height);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--main-color); /* Logo color */
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu li {
+    margin-left: 30px; /* Spacing between menu items */
+}
+
+.nav-menu a {
+    font-weight: bold;
+    text-transform: uppercase; /* Uppercase text for navigation links */
+}
+
+.nav-menu a:hover {
+    color: var(--main-color); /* Hover effect changes text to accent color */
+}
+
+.hamburger-menu {
+    display: none; /* Initially hidden, displayed in responsive design */
+    cursor: pointer;
+    position: relative;
+    width: 30px;
+    height: 30px;
+}
+.main-color{
+    color: white;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    background-color: var(--text-color);
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    transition: transform 0.4s ease;
+}
+
+.hamburger::before {
+    content: '';
+    top: -10px;
+}
+
+.hamburger::after {
+    content: '';
+    bottom: -10px;
+}
+
+/* Toggle hamburger menu into a cross */
+.hamburger-menu.active .hamburger {
+    background: transparent;
+}
+
+.hamburger-menu.active .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.hamburger-menu.active .hamburger::after {
+    transform: rotate(-135deg);
+    bottom: 0;
+}
+
+/* Styling for responsive design */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none; /* Hide nav menu in mobile view */
+    }
+}
+
+.hero-slider {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 60px;
+    left: 20px;
+    color: white;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text */
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.slide-content h2 {
+    margin: 0 0 0px 0;
+}
+
+.hero-slider .slide:first-child {
+    opacity: 1; /* Show first slide by default */
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 24px;
+    transform: translateY(-50%);
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.slider-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+}
+
+.slide-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.control-button {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-button i {
+    font-size: 20px;
+}
+
+.control-button:hover {
+    background-color: darkred;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.container {
+    max-width: 1920px;
+    padding: 0 40px;
+    margin: auto;
+}
+
+
+/* Animated Heading */
+.animated-heading {
+    font-size: 2.5em; /* Adjust the font size as needed */
+    text-align: center; /* Center align the text */
+    margin-bottom: 20px; /* Add some margin below the heading */
+    position: relative;
+    opacity: 0; /* Start with invisible text */
+    transform: scale(0.5) translateY(20px); /* Start with scaled-down and shifted text */
+    animation: headingAnimation 2s ease-out forwards; /* Apply animation */
+    color: #fff; /* White color for the heading text */
+}
+
+/* Keyframes for the heading animation */
+@keyframes headingAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(20px);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1) translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Top Rated Movies */
+.slider-arrow {
+    font-size: 30px; /* Adjust the font size as needed */
+    color: white; /* Set the color of the arrows */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%; /* Position the arrows vertically centered */
+    transform: translateY(-50%); /* Adjust the vertical position */
+    z-index: 2; /* Ensure the arrows are above other content */
+    padding: 10px; /* Add some padding for better touch targets */
+    border-radius: 50%; /* Rounded arrows */
+}
+
+.left-arrow {
+    left: 10px; /* Adjust the position of the left arrow */
+}
+
+.right-arrow {
+    right: 10px; /* Adjust the position of the right arrow */
+}
+
+.movies-container {
+    display: flex;
+    overflow-x: hidden; /* Hide the horizontal scrollbar */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    position: relative;
+    padding: 20px 0; /* Add some padding for spacing */
+}
+
+.movie {
+    flex: 0 0 200px; /* Set a fixed width for each movie */
+    margin: 10px; /* Add some margin between the movies */
+    text-align: center; /* Center the movie title */
+    position: relative; /* Position relative for overlay */
+    transition: transform 0.3s ease; /* Smooth transform transition */
+}
+
+.movie img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Rounded corners for movie images */
+    display: block; /* Remove the white line underneath the images */
+}
+
+.movie:hover {
+    transform: scale(1.1); /* Scale up the movie on hover */
+}
+
+.movie-info {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    padding: 10px;
+    border-radius: 0 0 10px 10px; /* Match the image border radius */
+}
+
+.movie-title {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.movie-rating {
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* Background for the Top Rated Movies section */
+#top-rated-movies {
+    background: #333; /* Dark background color */
+    padding: 40px 20px; /* Add some padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin: 20px 0; /* Add margin for spacing */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Smaller Heading for Top Rated Movies */
+.top-rated-heading {
+    font-size: 1.5em; /* Adjust the font size as needed */
+    text-align: center; /* Center align the text */
+    margin-bottom: 20px; /* Add some margin below the heading */
+    position: relative;
+    opacity: 0; /* Start with invisible text */
+    transform: scale(0.5) translateY(20px); /* Start with scaled-down and shifted text */
+    animation: headingAnimation 2s ease-out forwards; /* Apply animation */
+    color: rgb(192, 56, 22); /* White color for the heading text */
+}
+
+
+
+/* Now Playing Movies */
+#now-playing-movies {
+    background: #333; /* Dark background color */
+    padding: 40px 20px; /* Add some padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin: 20px 0; /* Add margin for spacing */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Smaller Heading for Now Playing Movies */
+.now-playing-heading {
+    font-size: 1.5em; /* Adjust the font size as needed */
+    text-align: center; /* Center align the text */
+    margin-bottom: 20px; /* Add some margin below the heading */
+    position: relative;
+    opacity: 0; /* Start with invisible text */
+    transform: scale(0.5) translateY(20px); /* Start with scaled-down and shifted text */
+    animation: headingAnimation 2s ease-out forwards; /* Apply animation */
+    color: rgb(192, 56, 22); /* White color for the heading text */
+}
+
+/* Keyframes for the heading animation */
+@keyframes headingAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(20px);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1) translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Top Rated Movies */
+.slider-arrow {
+    font-size: 30px; /* Adjust the font size as needed */
+    color: white; /* Set the color of the arrows */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%; /* Position the arrows vertically centered */
+    transform: translateY(-50%); /* Adjust the vertical position */
+    z-index: 2; /* Ensure the arrows are above other content */
+    padding: 10px; /* Add some padding for better touch targets */
+    border-radius: 50%; /* Rounded arrows */
+}
+
+.left-arrow {
+    left: 10px; /* Adjust the position of the left arrow */
+}
+
+.right-arrow {
+    right: 10px; /* Adjust the position of the right arrow */
+}
+
+.movies-container {
+    display: flex;
+    overflow-x: hidden; /* Hide the horizontal scrollbar */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    position: relative;
+    padding: 20px 0; /* Add some padding for spacing */
+}
+
+.movie {
+    flex: 0 0 200px; /* Set a fixed width for each movie */
+    margin: 10px; /* Add some margin between the movies */
+    text-align: center; /* Center the movie title */
+    position: relative; /* Position relative for overlay */
+    transition: transform 0.3s ease; /* Smooth transform transition */
+}
+
+.movie img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Rounded corners for movie images */
+    display: block; /* Remove the white line underneath the images */
+}
+
+.movie:hover {
+    transform: scale(1.1); /* Scale up the movie on hover */
+}
+
+.movie-info {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    padding: 10px;
+    border-radius: 0 0 10px 10px; /* Match the image border radius */
+}
+
+.movie-title {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.movie-rating {
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+
+/* Trending Movies */
+#trending-movies {
+    background: #333; /* Dark background color */
+    padding: 40px 20px; /* Add some padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin: 20px 0; /* Add margin for spacing */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Smaller Heading for Trending Movies */
+.trending-heading {
+    font-size: 1.5em; /* Adjust the font size as needed */
+    text-align: center; /* Center align the text */
+    margin-bottom: 20px; /* Add some margin below the heading */
+    position: relative;
+    opacity: 0; /* Start with invisible text */
+    transform: scale(0.5) translateY(20px); /* Start with scaled-down and shifted text */
+    animation: headingAnimation 2s ease-out forwards; /* Apply animation */
+    color: rgb(192, 56, 22); /* White color for the heading text */
+}
+
+/* Keyframes for the heading animation */
+@keyframes headingAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(20px);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1) translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Slider Arrows */
+.slider-arrow {
+    font-size: 30px; /* Adjust the font size as needed */
+    color: white; /* Set the color of the arrows */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%; /* Position the arrows vertically centered */
+    transform: translateY(-50%); /* Adjust the vertical position */
+    z-index: 2; /* Ensure the arrows are above other content */
+    padding: 10px; /* Add some padding for better touch targets */
+    border-radius: 50%; /* Rounded arrows */
+}
+
+.left-arrow {
+    left: 10px; /* Adjust the position of the left arrow */
+}
+
+.right-arrow {
+    right: 10px; /* Adjust the position of the right arrow */
+}
+
+/* Movies Container */
+.movies-container {
+    display: flex;
+    overflow-x: hidden; /* Hide the horizontal scrollbar */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    position: relative;
+    padding: 20px 0; /* Add some padding for spacing */
+}
+
+/* Movie Card */
+.movie {
+    flex: 0 0 200px; /* Set a fixed width for each movie */
+    margin: 10px; /* Add some margin between the movies */
+    text-align: center; /* Center the movie title */
+    position: relative; /* Position relative for overlay */
+    transition: transform 0.3s ease; /* Smooth transform transition */
+}
+
+.movie img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Rounded corners for movie images */
+    display: block; /* Remove the white line underneath the images */
+}
+
+.movie:hover {
+    transform: scale(1.1); /* Scale up the movie on hover */
+}
+
+/* Movie Info Overlay */
+.movie-info {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    padding: 10px;
+    border-radius: 0 0 10px 10px; /* Match the image border radius */
+}
+
+.movie-title {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.movie-rating {
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+/* Remove background color and border for each section */
+#now-playing-movies,
+#top-rated-movies,
+#trending-movies {
+    background: none; /* Remove background color */
+    border: none; /* Remove border */
+}
+/* Reduce margin between sections */
+#now-playing-movies,
+#top-rated-movies,
+#trending-movies {
+    margin-bottom: 20px; /* Adjust the margin between sections */
+}
+
+/* Remove margin-top for the second and third sections */
+#top-rated-movies,
+#trending-movies {
+    margin-top: 0; /* Remove top margin for the second and third sections */
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.858);
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+input[type="text"], select {
+    padding: 8px;
+    margin: 10px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.genre-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.genre-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+}
+
+.genre-card h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.genre-card img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.genre-card p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}

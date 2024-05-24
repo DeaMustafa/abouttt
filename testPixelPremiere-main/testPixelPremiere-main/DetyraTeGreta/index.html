@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Slider</title>
+    <link rel="stylesheet" href="css/index.css">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
+    <!-- BOX ICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- APP CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    <!-- NAV -->
+    <div class="nav-wrapper">
+        <div class="container">
+            <div class="nav">
+                <a href="#" class="logo">
+                    <i class='bx bx-movie-play bx-tada main-color'></i>Pixel<span class="main-color">Pre</span>miere
+                </a>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="genre.html">Genre</a></li>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="series.html">Series</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li>
+                        <a href="#" class="btn btn-hover">
+                            <span>Sign in</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- MOBILE MENU TOGGLE -->
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <div class="hamburger"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END NAV -->
+
+    <div class="hero-slider">
+        <!-- Left navigation arrow -->
+        <button class="slider-arrow left-arrow" onclick="moveSlide('prev')">&#10094;</button>
+    
+        <div class="slide">
+            <video class="slide-video" controls>
+                <source src="assets/movie1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="slide-content">
+                <h2>Bat Man</h2>
+            </div>
+        </div>
+        <div class="slide">
+            <video class="slide-video" controls>
+                <source src="assets/movie2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="slide-content">
+                <h2>Blood Shot</h2>
+            </div>
+        </div>
+        <div class="slide">
+            <video class="slide-video" controls>
+                <source src="assets/movie3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="slide-content">
+                <h2>Call</h2>
+            </div>
+        </div>
+        <div class="slide">
+            <video class="slide-video" controls>
+                <source src="assets/movie4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="slide-content">
+                <h2>Captain Marvel</h2>
+            </div>
+        </div>
+        <div class="slide">
+            <video class="slide-video" controls>
+                <source src="assets/movie5.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="slide-content">
+                <h2>End Game</h2>
+            </div>
+        </div>
+        <div class="slide">
+            <video class="slide-video" controls>
+                <source src="assets/movie6.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="slide-content">
+                <h2>Hunter Killer</h2>
+            </div>
+        </div>
+        <!-- Add more slides as needed -->
+    
+        <!-- Right navigation arrow -->
+        <button class="slider-arrow right-arrow" onclick="moveSlide('next')">&#10095;</button>
+    </div>
+
+    <!-- Video Controls -->
+    <div class="video-controls">
+        <button class="control-button" onclick="playVideo()"><i class="fas fa-play"></i></button>
+        <button class="control-button" onclick="pauseVideo()"><i class="fas fa-pause"></i></button>
+        <button class="control-button" onclick="moveSlide('next')"><i class="fas fa-forward"></i></button>
+    </div>
+    <div class="container">
+        <div class="section-header">
+            latest series
+        </div>
+        <div class="movies-slide carousel-nav-center owl-carousel owl-loaded owl-drag">
+            
+        </div>
+    
+  <!-- Top Rated Movies Section -->
+    <section id="top-rated-movies">
+        <h2 class="animated-heading top-rated-heading">Top Rated Movies</h2>
+        <div class="movie-slider">
+            <button class="slider-arrow left-arrow" onclick="moveTopRatedSlide('prev')">&#9664;</button>
+            <div class="movies-container">
+                <div class="movie">
+                    <img src="images/bat-man.jpg" alt="Batman">
+                    <div class="movie-info">
+                        <div class="movie-title">Batman</div>
+                        <div class="movie-rating">9.3/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/blood-shot.jpg" alt="The Godfather">
+                    <div class="movie-info">
+                        <div class="movie-title">The Godfather</div>
+                        <div class="movie-rating">9.2/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/call.jpg" alt="The Dark Knight">
+                    <div class="movie-info">
+                        <div class="movie-title">The Dark Knight</div>
+                        <div class="movie-rating">9.0/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/captain-marvel.png" alt="The Lord of the Rings">
+                    <div class="movie-info">
+                        <div class="movie-title">The Lord of the Rings</div>
+                        <div class="movie-rating">8.9/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/end-game.jpg" alt="Pulp Fiction">
+                    <div class="movie-info">
+                        <div class="movie-title">Pulp Fiction</div>
+                        <div class="movie-rating">8.9/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/hunter-killer.jpg" alt="Forrest Gump">
+                    <div class="movie-info">
+                        <div class="movie-title">Forrest Gump</div>
+                        <div class="movie-rating">8.8/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/insidious.jpg" alt="Inception">
+                    <div class="movie-info">
+                        <div class="movie-title">Inception</div>
+                        <div class="movie-rating">8.8/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/love-roise.jpg" alt="Fight Club">
+                    <div class="movie-info">
+                        <div class="movie-title">Fight Club</div>
+                        <div class="movie-rating">8.8/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/resident-evil.jpg" alt="Interstellar">
+                    <div class="movie-info">
+                        <div class="movie-title">Interstellar</div>
+                        <div class="movie-rating">8.6/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/theatre-dead.jpg" alt="Interstellar">
+                    <div class="movie-info">
+                        <div class="movie-title">Interstellar</div>
+                        <div class="movie-rating">8.6/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/transformer.jpg" alt="Interstellar">
+                    <div class="movie-info">
+                        <div class="movie-title">Interstellar</div>
+                        <div class="movie-rating">8.6/10</div>
+                    </div>
+                </div>
+            </div>
+            <button class="slider-arrow right-arrow" onclick="moveTopRatedSlide('next')">&#9654;</button>
+        </div>
+    </section>
+
+    <section id="now-playing-movies">
+        <h2 class="animated-heading now-playing-heading">Now Playing Movies</h2>
+        <div class="movie-slider">
+            <button class="slider-arrow left-arrow" onclick="moveNowPlayingSlide('prev')">&#9664;</button>
+            <div class="movies-container">
+                <!-- Movie cards will be dynamically added here -->
+                <div class="movie">
+                    <img src="images/bat-man.jpg" alt="Batman">
+                    <div class="movie-info">
+                        <div class="movie-title">Batman</div>
+                        <div class="movie-rating">9.3/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/blood-shot.jpg" alt="The Godfather">
+                    <div class="movie-info">
+                        <div class="movie-title">The Godfather</div>
+                        <div class="movie-rating">9.2/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/call.jpg" alt="The Dark Knight">
+                    <div class="movie-info">
+                        <div class="movie-title">The Dark Knight</div>
+                        <div class="movie-rating">9.0/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/captain-marvel.png" alt="The Lord of the Rings">
+                    <div class="movie-info">
+                        <div class="movie-title">The Lord of the Rings</div>
+                        <div class="movie-rating">8.9/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/end-game.jpg" alt="Pulp Fiction">
+                    <div class="movie-info">
+                        <div class="movie-title">Pulp Fiction</div>
+                        <div class="movie-rating">8.9/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/hunter-killer.jpg" alt="Forrest Gump">
+                    <div class="movie-info">
+                        <div class="movie-title">Forrest Gump</div>
+                        <div class="movie-rating">8.8/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/insidious.jpg" alt="Inception">
+                    <div class="movie-info">
+                        <div class="movie-title">Inception</div>
+                        <div class="movie-rating">8.8/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/love-roise.jpg" alt="Fight Club">
+                    <div class="movie-info">
+                        <div class="movie-title">Fight Club</div>
+                        <div class="movie-rating">8.8/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/resident-evil.jpg" alt="Interstellar">
+                    <div class="movie-info">
+                        <div class="movie-title">Interstellar</div>
+                        <div class="movie-rating">8.6/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/theatre-dead.jpg" alt="Interstellar">
+                    <div class="movie-info">
+                        <div class="movie-title">Interstellar</div>
+                        <div class="movie-rating">8.6/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/transformer.jpg" alt="Interstellar">
+                    <div class="movie-info">
+                        <div class="movie-title">Interstellar</div>
+                        <div class="movie-rating">8.6/10</div>
+                    </div>
+                </div>
+
+            </div>
+            <button class="slider-arrow right-arrow" onclick="moveNowPlayingSlide('next')">&#9654;</button>
+        </div>
+    </section>
+
+    <section id="trending-movies">
+        <h2 class="animated-heading trending-heading">Trending Movies</h2>
+        <div class="movie-slider">
+            <button class="slider-arrow left-arrow" onclick="moveTrendingSlide('prev')">&#9664;</button>
+            <div class="movies-container">
+                <!-- Movie cards will be dynamically added here -->
+                <div class="movie">
+                    <img src="images/bat-man.jpg" alt="Batman">
+                    <div class="movie-info">
+                        <div class="movie-title">Batman</div>
+                        <div class="movie-rating">9.3/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/blood-shot.jpg" alt="The Godfather">
+                    <div class="movie-info">
+                        <div class="movie-title">The Godfather</div>
+                        <div class="movie-rating">9.2/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/call.jpg" alt="The Dark Knight">
+                    <div class="movie-info">
+                        <div class="movie-title">The Dark Knight</div>
+                        <div class="movie-rating">9.0/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/captain-marvel.png" alt="The Lord of the Rings">
+                    <div class="movie-info">
+                        <div class="movie-title">The Lord of the Rings</div>
+                        <div class="movie-rating">8.9/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/end-game.jpg" alt="Pulp Fiction">
+                    <div class="movie-info">
+                        <div class="movie-title">Pulp Fiction</div>
+                        <div class="movie-rating">8.9/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/hunter-killer.jpg" alt="Forrest Gump">
+                    <div class="movie-info">
+                        <div class="movie-title">Forrest Gump</div>
+                        <div class="movie-rating">8.8/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/insidious.jpg" alt="Inception">
+                    <div class="movie-info">
+                        <div class="movie-title">Inception</div>
+                        <div class="movie-rating">8.8/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/love-roise.jpg" alt="Fight Club">
+                    <div class="movie-info">
+                        <div class="movie-title">Fight Club</div>
+                        <div class="movie-rating">8.8/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/resident-evil.jpg" alt="Interstellar">
+                    <div class="movie-info">
+                        <div class="movie-title">Interstellar</div>
+                        <div class="movie-rating">8.6/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/theatre-dead.jpg" alt="Interstellar">
+                    <div class="movie-info">
+                        <div class="movie-title">Interstellar</div>
+                        <div class="movie-rating">8.6/10</div>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/transformer.jpg" alt="Interstellar">
+                    <div class="movie-info">
+                        <div class="movie-title">Interstellar</div>
+                        <div class="movie-rating">8.6/10</div>
+                    </div>
+                </div>
+            </div>
+            <button class="slider-arrow right-arrow" onclick="moveTrendingSlide('next')">&#9654;</button>
+        </div>
+    </section>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
